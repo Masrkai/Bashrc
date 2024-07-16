@@ -25,7 +25,7 @@ switch(){
 }
 #------------------
 garbage(){
-    nix-collect-garbage -d
+    nix-collect-garbage -d && nix-store --optimise
 }
 #------------------
 gens(){
@@ -61,46 +61,42 @@ backup(){
 }
 #------------------
 
-
-
-
-#Aliases:-
-
-#Custom:
+#-----------------> Aliases:-
+#! Custom:
 alias cl="clear"
 alias ff='fastfetch'
 alias code='codium '
 alias anime='ani-cli -q 720 --dub'
 alias ascr='scrcpy --no-audio -Sw --no-downsize-on-error'
+#-------------------------------------------------------
 
-#-------------------------------------------------------|
-
-#System:
+#* System:
 alias sudo='sudo '
-alias l='ls -lav -A'
+alias l='eza  --color=always --long --tree --git --links -a --icons=always'
+alias ls='eza --color=always --long --git --icons=always'
 alias ip='ip --color=auto'
 alias grep='grep --color=auto'
 
-#Verposing copy and move commands
+#* Verposing copy and move commands
 alias cpv='rsync -avh --info=progress2'
 
-#Override Protection
+#* Override Protection
 alias cp='cp -vi'
 alias mv='mv -vi'
 
- # do sudo, or sudo the last command if no argument given
+#* do sudo, or sudo the last command if no argument given
 s() {
     if [[ $# == 0 ]]; then
-        sudo $(history -p '!!')
+        eval "sudo $(fc -ln -1)"
     else
         sudo "$@"
     fi
 }
 
-#Extraction function
+#! Extraction function
 function extract {
  if [ $# -eq 0 ]; then
-    # display usage if no parameters given
+    #? display usage if no parameters given
     echo "Usage: extract <path/file_name>.<zip|rar|bz2|gz|tar|tbz2|tgz|Z|7z|xz|ex|tar.bz2|tar.gz|tar.xz|.zlib|.cso|.zst>"
     echo "       extract <path/file_name_1.ext> [path/file_name_2.ext] [path/file_name_3.ext]"
  fi
@@ -142,4 +138,3 @@ function extract {
         esac
     done
 }
-#----------------------------|
