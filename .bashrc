@@ -25,7 +25,7 @@ switch(){
 }
 #------------------
 garbage(){
-    nix-collect-garbage -d && nix-store --optimise
+    nix-collect-garbage -d && nix-store --optimise && pip cache purge && sudo nix-collect-garbage -d
 }
 #------------------
 gens(){
