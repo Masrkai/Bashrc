@@ -45,8 +45,7 @@ fixcode(){
 }
 #------------------
 wl(){
-#     sudo evillimiter -f
-     cd /home/masrkai/Programs/Better-Evil-Limiter/evillimiter/ && python3 evillimiter.py
+     sudo python3 /home/masrkai/Programs/Better-Evil-Limiter/evillimiter/evillimiter.py -f
 }
 #------------------
 fusb(){
