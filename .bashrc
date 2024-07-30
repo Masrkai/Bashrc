@@ -44,6 +44,10 @@ fixcode(){
     rm -rf ~/.config/VSCodium/GPUCache/
 }
 #------------------
+fixbrave(){
+    Sudo rm -rf ~/.config/BraveSoftware/Brave-Browser/SingletonLock
+}
+#------------------
 wl(){
      sudo python3 /home/masrkai/Programs/Better-Evil-Limiter/evillimiter/evillimiter.py -f
 }
